@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.4.201804120850-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/java/test3/applicationContext.xml</config>
+		<config>src/main/java/test4/applicationContext4.xml</config>
+		<config>src/main/java/test5/applicationContext5.xml</config>
+		<config>src/main/java/test6/applicationContext6.xml</config>
+		<config>src/main/java/test7/applicationContext7.xml</config>
+		<config>src/main/java/test8/applicationContext8.xml</config>
+		<config>src/main/java/test11/application11_run.xml</config>
+		<config>src/main/java/test12Aop/acQuickStart.xml</config>
+		<config>src/main/java/test13Aop/contextAnnot.xml</config>
+		<config>src/main/java/test14Aop/application14.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

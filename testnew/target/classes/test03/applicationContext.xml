@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- bean 생성 : 메소드를 통해 값 주입
+		 Boy boy = new Boy(); helloBoy.setName("홍길동");
+	-->
+	<!-- 메소드를 통해서 주입하는 방법 -->
+	<bean id="helloBoy" class="test03.Boy" p:name="홍길동">
+		<!-- <property name="name" value="홍길동"/> -->
+	</bean>
+	<bean name="helloBean,hello2 hello3;hello4" scope="prototype" class="test03.HelloBeanBoy" c:msg="스프링시간" c:age="20" c:helloBoy-ref="helloBoy">
+		<!-- <constructor-arg>
+			<value>스프링교육시간</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>20</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="helloBoy"/>
+		</constructor-arg> -->
+	</bean>
+	
+	<bean id="helloBoy2" class="test03.Boy">
+		<property name="name" value="만월이"/>
+	</bean>
+	<bean id="helloGirl" class="test03.HelloBeanGirl">
+		<constructor-arg>
+			<value>점심시간이다</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>22</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="helloBoy2"/>
+		</constructor-arg>
+	</bean>
+	
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	<bean id="writeArticleService" class="test12Aop.WriteArticleServiceImpl">
+		<constructor-arg>
+			<ref bean="articleDao"/>
+		</constructor-arg>
+	</bean>
+	<bean id="articleDao" class="test12Aop.MySQLArticleDao"/>
+	
+	<!-- Advice(보조클래스/공통관심클래스) 클래스를 빈으로 등록 -->
+	<bean id="performanceTraceAdvice" class="test12Aop.ProfilingAdvice" />
+	
+	<!-- Aspect 설정 : Advice를 어떤 Pointcut에 적용할 지 설정 -->
+	<aop:config>
+	<!-- 보조클래스를 식별자 생성 -->
+		<aop:aspect id="traceAspect1" ref="performanceTraceAdvice">
+			<!-- 주인공에 적용할 메소드 형식 -->
+			<aop:pointcut id="publicMethod" expression="execution(public * test12Aop..*(..))"/>
+			<!-- 			메소드(엑스트라), 야이디(주인공)이 나와야함? -->
+			<aop:around method="trace" pointcut-ref="publicMethod" />
+		</aop:aspect>
+	</aop:config>
+</beans>
